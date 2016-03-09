@@ -7,6 +7,12 @@ import React, { PropTypes } from 'react';
 import styles from './styles.css';
 
 class A extends React.Component {
+  static propTypes = {
+    className: PropTypes.string,
+    href: PropTypes.string.isRequired,
+    target: PropTypes.string,
+    children: PropTypes.any,
+  }
   render() {
     return (
       <a
@@ -21,11 +27,5 @@ class A extends React.Component {
     );
   }
 }
-
-A.propTypes = {
-  className: PropTypes.string,
-  href: PropTypes.string.isRequired,
-  target: PropTypes.string,
-};
 
 export default A;

@@ -85,7 +85,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mxstbr/react-boilerplate.git"
+    "url": "git@github.com:ParkarDev/react-resume.git"
   },
   "scripts": {
     "start": "NODE_ENV=development node internals/webpack/server.dev.js",
@@ -111,44 +111,8 @@
     "coveralls": "cat ./coverage/lcov/lcov.info | coveralls"
   },
   "pre-commit": "lint:staged",
-  "author": "Max Stoiber",
+  "author": "Rahul Parkar",
   "license": "MIT",
-  "babel": {
-    "presets": [
-      "es2015",
-      "react",
-      "stage-0"
-    ]
-  },
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": "airbnb",
-    "env": {
-      "browser": true,
-      "node": true,
-      "mocha": true,
-      "es6": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 6,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "rules": {
-      "comma-dangle": 2,
-      "indent": [2, 2, {"SwitchCase": 1}],
-      "no-console": 0,
-      "react/prop-types": 0,
-      "max-len": 0,
-      "prefer-template": 0,
-      "no-use-before-define": 0,
-      "newline-per-chained-call": 0,
-      "arrow-body-style": [2, "as-needed"],
-      "react/prefer-stateless-function": 0
-    }
-  },
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
