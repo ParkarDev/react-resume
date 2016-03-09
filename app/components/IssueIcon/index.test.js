@@ -5,10 +5,10 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 describe('<IssueIcon />', () => {
-  it('should render a SVG', () => {
-    const renderedComponent = shallow(
+    it('should render a SVG', () => {
+        const renderedComponent = shallow(
       <IssueIcon />
     );
-    expect(renderedComponent.find('svg').length).toEqual(1);
-  });
+        expect(renderedComponent.find('svg').length).toEqual(1);
+    });
 });

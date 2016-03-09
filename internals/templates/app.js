@@ -29,8 +29,8 @@ const store = configureStore();
 import App from 'App';
 import createRoutes from './routes';
 const rootRoute = {
-  component: App,
-  childRoutes: createRoutes(store),
+    component: App,
+    childRoutes: createRoutes(store),
 };
 
 ReactDOM.render(

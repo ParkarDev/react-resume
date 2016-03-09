@@ -16,18 +16,18 @@ import A from 'A';
 import styles from './styles.css';
 
 export class RepoListItem extends React.Component {
-  render() {
-    const item = this.props.item;
-    let nameprefix = '';
+    render() {
+        const item = this.props.item;
+        let nameprefix = '';
 
     // If the repository is owned by a different person than we got the data for
     // it's a fork and we should show the name of the owner
-    if (item.owner.login !== this.props.currentUser) {
-      nameprefix = item.owner.login + '/';
-    }
+        if (item.owner.login !== this.props.currentUser) {
+          nameprefix = item.owner.login + '/';
+      }
 
     // Put together the content of the repository
-    const content = (
+        const content = (
       <div className={ styles.linkWrapper }>
         <A
           className={ styles.linkRepo }
@@ -48,10 +48,10 @@ export class RepoListItem extends React.Component {
     );
 
     // Render the content into a list item
-    return (
+        return (
       <ListItem key={'repo-list-item-' + item.full_name } content={content} />
     );
-  }
+    }
 }
 
 export default connect(createSelector(

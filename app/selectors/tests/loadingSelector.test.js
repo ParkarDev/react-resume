@@ -7,13 +7,13 @@ import { fromJS } from 'immutable';
 import expect from 'expect';
 
 describe('loadingSelector', () => {
-  it('should select the loading', () => {
-    const loading = false;
-    const mockedState = fromJS({
-      global: {
-        loading,
-      },
+    it('should select the loading', () => {
+        const loading = false;
+        const mockedState = fromJS({
+          global: {
+            loading,
+        },
+      });
+        expect(loadingSelector(mockedState)).toEqual(loading);
     });
-    expect(loadingSelector(mockedState)).toEqual(loading);
-  });
 });

@@ -7,13 +7,13 @@ import { fromJS } from 'immutable';
 import expect from 'expect';
 
 describe('errorSelector', () => {
-  it('should select the error', () => {
-    const error = 404;
-    const mockedState = fromJS({
-      global: {
-        error,
-      },
+    it('should select the error', () => {
+        const error = 404;
+        const mockedState = fromJS({
+          global: {
+            error,
+        },
+      });
+        expect(errorSelector(mockedState)).toEqual(error);
     });
-    expect(errorSelector(mockedState)).toEqual(error);
-  });
 });

@@ -20,23 +20,23 @@ console.log(
 console.log('\nStarting server...');
 
 new WebpackDevServer(webpack(config), { // Start a server
-  publicPath: config.output.publicPath,
-  hot: true, // With hot reloading
-  inline: false,
-  historyApiFallback: true,
-  quiet: true, // Without logging
+    publicPath: config.output.publicPath,
+    hot: true, // With hot reloading
+    inline: false,
+    historyApiFallback: true,
+    quiet: true, // Without logging
 }).listen(port, 'localhost', (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('Server started ' + chalk.green('✓'));
-    console.log(
+    if (err) {
+        console.log(err);
+    } else {
+        console.log('Server started ' + chalk.green('✓'));
+        console.log(
       chalk.bold('\nAccess URLs:') +
       chalk.gray('\n-----------------------------------') +
       '\n   Local: ' + chalk.magenta('http://localhost:' + port) +
       '\nExternal: ' + chalk.magenta('http://' + ip.address() + ':' + port) +
       chalk.gray('\n-----------------------------------')
     );
-    console.log(chalk.blue('\nPress ' + chalk.italic('CTRL-C') + ' to stop'));
-  }
+        console.log(chalk.blue('\nPress ' + chalk.italic('CTRL-C') + ' to stop'));
+    }
 });

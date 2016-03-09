@@ -28,9 +28,9 @@ const openSansObserver = new FontFaceObserver('Open Sans', {});
 
 // When Open Sans is loaded, add a font-family using Open Sans to the body
 openSansObserver.check().then(() => {
-  document.body.classList.add(styles.fontLoaded);
+    document.body.classList.add(styles.fontLoaded);
 }, () => {
-  document.body.classList.remove(styles.fontLoaded);
+    document.body.classList.remove(styles.fontLoaded);
 });
 
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
@@ -42,8 +42,8 @@ const store = configureStore();
 import App from 'App';
 import createRoutes from './routes';
 const rootRoute = {
-  component: App,
-  childRoutes: createRoutes(store),
+    component: App,
+    childRoutes: createRoutes(store),
 };
 
 ReactDOM.render(

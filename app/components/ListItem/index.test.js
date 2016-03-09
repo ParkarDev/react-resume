@@ -5,16 +5,16 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 describe('<List />', () => {
-  it('should adopt the className', () => {
-    const renderedComponent = shallow(<ListItem className="test" />);
-    expect(renderedComponent.find('li').hasClass('test')).toEqual(true);
-  });
+    it('should adopt the className', () => {
+        const renderedComponent = shallow(<ListItem className="test" />);
+        expect(renderedComponent.find('li').hasClass('test')).toEqual(true);
+    });
 
-  it('should render the content passed to it', () => {
-    const content = 'Hello world!';
-    const renderedComponent = shallow(
+    it('should render the content passed to it', () => {
+        const content = 'Hello world!';
+        const renderedComponent = shallow(
       <ListItem content={content} />
     );
-    expect(renderedComponent.contains(content)).toEqual(true);
-  });
+        expect(renderedComponent.contains(content)).toEqual(true);
+    });
 });

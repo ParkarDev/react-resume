@@ -12,27 +12,27 @@ export default function configureStore(initialState = {}) {
   // 1. sagaMiddleware: Imports all the asynchronous flows ("sagas") from the
   //    sagas folder and triggers them
   // 2. reduxRouterMiddleware: Syncs the location/URL path to the state
-  const createStoreWithMiddleware = compose(
+    const createStoreWithMiddleware = compose(
     applyMiddleware(reduxRouterMiddleware, sagaMiddleware(...sagas)),
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )(createStore);
-  const store = createStoreWithMiddleware(createReducer(), fromJS(initialState));
-  reduxRouterMiddleware.listenForReplays(store, (state) => state.get('route').location);
+    const store = createStoreWithMiddleware(createReducer(), fromJS(initialState));
+    reduxRouterMiddleware.listenForReplays(store, (state) => state.get('route').location);
 
 // Make reducers hot reloadable, see http://mxs.is/googmo
-  if (module.hot) {
-    module.hot.accept('./rootReducer', () => {
-      const nextRootReducer = require('./rootReducer').default;
-      store.replaceReducer(nextRootReducer);
-    });
-  }
+    if (module.hot) {
+        module.hot.accept('./rootReducer', () => {
+          const nextRootReducer = require('./rootReducer').default;
+          store.replaceReducer(nextRootReducer);
+      });
+    }
 
-  store.asyncReducers = {};
+    store.asyncReducers = {};
 
-  return store;
+    return store;
 }
 
 export function injectAsyncReducer(store, name, asyncReducer) {
   store.asyncReducers[name] = asyncReducer; // eslint-disable-line
-  store.replaceReducer(createReducer(store.asyncReducers));
+    store.replaceReducer(createReducer(store.asyncReducers));
 }

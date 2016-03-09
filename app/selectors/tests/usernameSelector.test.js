@@ -7,13 +7,13 @@ import { fromJS } from 'immutable';
 import expect from 'expect';
 
 describe('usernameSelector', () => {
-  it('should select the username', () => {
-    const username = 'mxstbr';
-    const mockedState = fromJS({
-      home: {
-        username,
-      },
+    it('should select the username', () => {
+        const username = 'mxstbr';
+        const mockedState = fromJS({
+          home: {
+            username,
+        },
+      });
+        expect(usernameSelector(mockedState)).toEqual(username);
     });
-    expect(usernameSelector(mockedState)).toEqual(username);
-  });
 });

@@ -7,29 +7,29 @@
 import { injectAsyncReducer } from './store';
 
 export default function createRoutes(store) {
-  return [
-    {
-      path: '/',
-      getComponent: function get(location, cb) {
-        require.ensure([], (require) => {
-          injectAsyncReducer(store, 'home', require('HomePage/reducer').default);
-          cb(null, require('HomePage').default);
-        }, 'HomePage');
-      },
-    }, {
-      path: '/features',
-      getComponent: function get(location, cb) {
-        require.ensure([], (require) => {
-          cb(null, require('FeaturePage').default);
-        }, 'FeaturePage');
-      },
-    }, {
-      path: '*',
-      getComponent: function get(location, cb) {
-        require.ensure([], (require) => {
-          cb(null, require('NotFoundPage').default);
-        }, 'NotFoundPage');
-      },
+    return [
+        {
+            path: '/',
+            getComponent: function get(location, cb) {
+              require.ensure([], (require) => {
+              injectAsyncReducer(store, 'home', require('HomePage/reducer').default);
+              cb(null, require('HomePage').default);
+          }, 'HomePage');
+          },
+        }, {
+          path: '/features',
+          getComponent: function get(location, cb) {
+            require.ensure([], (require) => {
+              cb(null, require('FeaturePage').default);
+          }, 'FeaturePage');
+        },
+      }, {
+        path: '*',
+        getComponent: function get(location, cb) {
+            require.ensure([], (require) => {
+              cb(null, require('NotFoundPage').default);
+          }, 'NotFoundPage');
+        },
     },
-  ];
+    ];
 }

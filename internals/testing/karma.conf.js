@@ -2,50 +2,50 @@ const webpackConfig = require('../webpack/webpack.test.babel');
 const path = require('path');
 
 module.exports = (config) => {
-  config.set({
-    frameworks: ['mocha'],
-    reporters: ['coverage', 'mocha'],
-    browsers: process.env.TRAVIS
+    config.set({
+        frameworks: ['mocha'],
+        reporters: ['coverage', 'mocha'],
+        browsers: process.env.TRAVIS
       ? ['ChromeTravis']
       : ['Chrome'],
 
-    autoWatch: false,
-    singleRun: true,
+        autoWatch: false,
+        singleRun: true,
 
-    files: [
-      {
-        pattern: './test-bundler.js',
-        watched: false,
-        served: true,
-        included: true,
+        files: [
+          {
+              pattern: './test-bundler.js',
+              watched: false,
+              served: true,
+              included: true,
+          },
+      ],
+
+        preprocessors: {
+          ['./test-bundler.js']: ['webpack', 'sourcemap'],
       },
-    ],
 
-    preprocessors: {
-      ['./test-bundler.js']: ['webpack', 'sourcemap'],
-    },
-
-    webpack: webpackConfig,
+        webpack: webpackConfig,
 
     // make Webpack bundle generation quiet
-    webpackMiddleware: {
-      noInfo: true,
-    },
-
-    customLaunchers: {
-      ChromeTravis: {
-        base: 'Chrome',
-        flags: ['--no-sandbox'],
+        webpackMiddleware: {
+          noInfo: true,
       },
-    },
 
-    coverageReporter: {
-      dir: path.join(process.cwd(), '../../coverage'),
-      reporters: [
+        customLaunchers: {
+          ChromeTravis: {
+            base: 'Chrome',
+            flags: ['--no-sandbox'],
+        },
+      },
+
+        coverageReporter: {
+          dir: path.join(process.cwd(), '../../coverage'),
+          reporters: [
         { type: 'lcov', subdir: 'lcov' },
         { type: 'html', subdir: 'html' },
-      ],
-    },
+        ],
+      },
 
-  });
+    });
 };

@@ -3,8 +3,8 @@ import React from 'react';
 import styles from './styles.css';
 
 class LoadingIndicator extends React.Component {
-  render() {
-    return (
+    render() {
+        return (
       <div>
         <div className={ styles['sk-fading-circle'] }>
           <div className={ styles.skCircle }></div>
@@ -22,7 +22,7 @@ class LoadingIndicator extends React.Component {
         </div>
       </div>
     );
-  }
+    }
 }
 
 export default LoadingIndicator;

@@ -16,8 +16,8 @@ import A from 'A';
 import styles from './styles.css';
 
 class App extends React.Component {
-  render() {
-    return (
+    render() {
+        return (
       <div className={ styles.wrapper }>
         <A
           className={ styles.logoWrapper }
@@ -33,7 +33,7 @@ class App extends React.Component {
         <Footer />
       </div>
     );
-  }
+    }
 }
 
 export default App;

@@ -33,41 +33,41 @@ import LoadingIndicator from 'LoadingIndicator';
 import styles from './styles.css';
 
 export class HomePage extends React.Component {
-  shouldComponentUpdate = shouldPureComponentUpdate;
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
   /**
    * Changes the route
    *
    * @param  {string} route The route we want to go to
    */
-  openRoute = (route) => {
-    this.props.changeRoute(route);
-  };
+    openRoute = (route) => {
+        this.props.changeRoute(route);
+    };
 
   /**
    * Changed route to '/features'
    */
-  openFeaturesPage = () => {
-    this.openRoute('/features');
-  };
+    openFeaturesPage = () => {
+        this.openRoute('/features');
+    };
 
-  render() {
-    let mainContent = null;
+    render() {
+        let mainContent = null;
     // Show a loading indicator when we're loading
-    if (this.props.loading) {
-      mainContent = (<List component={LoadingIndicator} />);
+        if (this.props.loading) {
+          mainContent = (<List component={LoadingIndicator} />);
     // Show an error if there is one
-    } else if (this.props.error !== false) {
-      const ErrorComponent = () => (
+      } else if (this.props.error !== false) {
+        const ErrorComponent = () => (
         <ListItem content={'Something went wrong, please try again!'} />
       );
-      mainContent = (<List component={ErrorComponent} />);
+        mainContent = (<List component={ErrorComponent} />);
     // If we're not loading, don't have an error and there are repos, show the repos
     } else if (this.props.repos !== false) {
-      mainContent = (<List items={this.props.repos} component={RepoListItem} />);
+        mainContent = (<List items={this.props.repos} component={RepoListItem} />);
     }
 
-    return (
+        return (
       <article>
         <div>
           <section className={ styles.textSection }>
@@ -93,19 +93,19 @@ export class HomePage extends React.Component {
         </div>
       </article>
     );
-  }
+    }
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
-    changeRoute: (url) => dispatch(routeActions.push(url)),
-    onSubmitForm: (evt) => {
-      evt.preventDefault();
-      dispatch(loadRepos());
-    },
-    dispatch,
-  };
+    return {
+        onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
+        changeRoute: (url) => dispatch(routeActions.push(url)),
+        onSubmitForm: (evt) => {
+          evt.preventDefault();
+          dispatch(loadRepos());
+      },
+        dispatch,
+    };
 }
 
 // Wrap the component to inject dispatch and state into it

@@ -20,19 +20,19 @@ export class FeaturePage extends React.Component {
    *
    * @param  {string} route The route we want to go to
    */
-  openRoute = (route) => {
-    this.props.changeRoute(route);
-  };
+    openRoute = (route) => {
+        this.props.changeRoute(route);
+    };
 
   /**
    * Changed route to '/'
    */
-  openHomePage = () => {
-    this.openRoute('/');
-  };
+    openHomePage = () => {
+        this.openRoute('/');
+    };
 
-  render() {
-    return (
+    render() {
+        return (
       <div>
         <H1>Features</H1>
         <ul className={ styles.list }>
@@ -58,13 +58,13 @@ export class FeaturePage extends React.Component {
         <Button handleRoute={ this.openHomePage }>Home</Button>
       </div>
     );
-  }
+    }
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    changeRoute: (url) => dispatch(routeActions.push(url)),
-  };
+    return {
+        changeRoute: (url) => dispatch(routeActions.push(url)),
+    };
 }
 
 export default connect(null, mapDispatchToProps)(FeaturePage);

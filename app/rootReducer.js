@@ -8,9 +8,9 @@ import { routeReducer } from 'react-router-redux';
 import globalReducer from 'App/reducer';
 
 export default function createReducer(asyncReducers) {
-  return combineReducers({
-    route: routeReducer,
-    global: globalReducer,
-    ...asyncReducers,
-  });
+    return combineReducers({
+        route: routeReducer,
+        global: globalReducer,
+        ...asyncReducers,
+    });
 }

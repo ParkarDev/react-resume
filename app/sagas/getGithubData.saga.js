@@ -11,18 +11,18 @@ import request from '../utils/request';
 import usernameSelector from 'usernameSelector';
 
 export function* getGithubData() {
-  while (true) {
-    yield take(LOAD_REPOS);
-    const username = yield select(usernameSelector);
-    const requestURL = 'https://api.github.com/users/' + username + '/repos?type=all&sort=updated';
+    while (true) {
+        yield take(LOAD_REPOS);
+        const username = yield select(usernameSelector);
+        const requestURL = 'https://api.github.com/users/' + username + '/repos?type=all&sort=updated';
     // Use call from redux-saga for easier testing
-    const repos = yield call(request, requestURL);
+        const repos = yield call(request, requestURL);
     // We return an object in a specific format, see utils/request.js for more information
-    if (repos.err === undefined || repos.err === null) {
-      yield put(reposLoaded(repos.data, username));
-    } else {
-      console.log(repos.err.response);
-      yield put(repoLoadingError(repos.err));
+        if (repos.err === undefined || repos.err === null) {
+          yield put(reposLoaded(repos.data, username));
+      } else {
+          console.log(repos.err.response);
+          yield put(repoLoadingError(repos.err));
+      }
     }
-  }
 }

@@ -7,7 +7,7 @@
 import React from 'react';
 
 export function HomePage() {
-  return (
+    return (
     <h1>This is the Homepage!</h1>
   );
 }

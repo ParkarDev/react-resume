@@ -10,32 +10,44 @@ import React from 'react';
 
 import styles from './styles.css';
 
-function Button(props) {
-  const className = props.className ? props.className : styles.button;
-  // Render an anchor tag
-  let button = (
-    <a className={className} href={props.href} onClick={props.onClick}>{props.children}</a>
-  );
+class Button extends React.Component {
+    static propTypes = {
+        className: React.PropTypes.string,
+        handleRoute: React.PropTypes.func,
+        href: React.PropTypes.string,
+        onClick: React.PropTypes.func,
+        children: React.PropTypes.any,
+    }
 
-  // If the Button has a handleRoute prop, we want to render a button
-  if (props.handleRoute) {
-    button = (
-      <button className={className} onClick={ props.handleRoute } >{props.children}</button>
-    );
-  }
+    render() {
+        const className = this.props.className ? this.props.className : styles.button;
+        // Render an anchor tag
+        let button = (
+            <a className={className}
+                href={this.props.href}
+                onClick={this.props.onClick}
+            >
+                {this.props.children}
+            </a>
+        );
 
-  return (
-    <div className={ styles.buttonWrapper }>
-      { button }
-    </div>
-  );
+        // If the Button has a handleRoute prop, we want to render a button
+        if (this.props.handleRoute) {
+            button = (
+                <button className={className}
+                    onClick={ this.props.handleRoute }
+                >
+                    {this.props.children}
+                </button>
+            );
+        }
+
+        return (
+            <div className={ styles.buttonWrapper }>
+                { button }
+            </div>
+        );
+    }
 }
-
-Button.propTypes = {
-  className: React.PropTypes.string,
-  handleRoute: React.PropTypes.func,
-  href: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-};
 
 export default Button;

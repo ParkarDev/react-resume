@@ -5,11 +5,11 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 describe('<H3 />', () => {
-  it('should render its text', () => {
-    const children = 'Text';
-    const renderedComponent = shallow(
+    it('should render its text', () => {
+        const children = 'Text';
+        const renderedComponent = shallow(
       <H3>{ children }</H3>
     );
-    expect(renderedComponent.contains(children)).toEqual(true);
-  });
+        expect(renderedComponent.contains(children)).toEqual(true);
+    });
 });
