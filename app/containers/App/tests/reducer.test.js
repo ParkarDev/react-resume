@@ -11,13 +11,13 @@ describe('appReducer', () => {
     let state;
     beforeEach(() => {
         state = fromJS({
-          loading: false,
-          error: false,
-          currentUser: false,
-          userData: fromJS({
-            repositories: false,
-        }),
-      });
+            loading: false,
+            error: false,
+            currentUser: false,
+            userData: fromJS({
+              repositories: false,
+          }),
+        });
     });
 
     it('should return the initial state', () => {
@@ -36,8 +36,8 @@ describe('appReducer', () => {
 
     it('should handle the reposLoaded action correctly', () => {
         const fixture = [{
-          name: 'My Repo',
-      }];
+            name: 'My Repo',
+        }];
         const username = 'test';
         const expectedResult = state
       .setIn(['userData', 'repositories'], fixture)
@@ -49,8 +49,8 @@ describe('appReducer', () => {
 
     it('should handle the repoLoadingError action correctly', () => {
         const fixture = {
-          msg: 'Not found',
-      };
+            msg: 'Not found',
+        };
         const expectedResult = state
       .set('error', fixture)
       .set('loading', false);

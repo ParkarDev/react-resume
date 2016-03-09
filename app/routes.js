@@ -11,25 +11,25 @@ export default function createRoutes(store) {
         {
             path: '/',
             getComponent: function get(location, cb) {
+                require.ensure([], (require) => {
+                  injectAsyncReducer(store, 'home', require('HomePage/reducer').default);
+                  cb(null, require('HomePage').default);
+              }, 'HomePage');
+            },
+        }, {
+            path: '/features',
+            getComponent: function get(location, cb) {
               require.ensure([], (require) => {
-              injectAsyncReducer(store, 'home', require('HomePage/reducer').default);
-              cb(null, require('HomePage').default);
-          }, 'HomePage');
+                cb(null, require('FeaturePage').default);
+            }, 'FeaturePage');
           },
         }, {
-          path: '/features',
+          path: '*',
           getComponent: function get(location, cb) {
             require.ensure([], (require) => {
-              cb(null, require('FeaturePage').default);
-          }, 'FeaturePage');
+                cb(null, require('NotFoundPage').default);
+            }, 'NotFoundPage');
         },
-      }, {
-        path: '*',
-        getComponent: function get(location, cb) {
-            require.ensure([], (require) => {
-              cb(null, require('NotFoundPage').default);
-          }, 'NotFoundPage');
-        },
-    },
+      },
     ];
 }

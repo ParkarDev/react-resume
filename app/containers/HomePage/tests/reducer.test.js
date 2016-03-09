@@ -9,8 +9,8 @@ describe('homeReducer', () => {
     let state;
     beforeEach(() => {
         state = fromJS({
-          username: '',
-      });
+            username: '',
+        });
     });
 
     it('should return the initial state', () => {

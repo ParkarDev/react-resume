@@ -10,8 +10,8 @@ describe('globalSelector', () => {
     it('should select the global state', () => {
         const globalState = fromJS({});
         const mockedState = fromJS({
-          global: globalState,
-      });
+            global: globalState,
+        });
         expect(globalSelector(mockedState)).toEqual(globalState);
     });
 });

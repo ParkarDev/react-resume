@@ -10,17 +10,17 @@ export default function createRoutes(store) { // eslint-disable-line
         {
             path: '/',
             getComponent: function get(location, cb) {
-              require.ensure([], (require) => {
-              cb(null, require('HomePage').default);
-          }, 'HomePage');
-          },
+                require.ensure([], (require) => {
+                  cb(null, require('HomePage').default);
+              }, 'HomePage');
+            },
         }, {
-          path: '*',
-          getComponent: function get(location, cb) {
-            require.ensure([], (require) => {
-              cb(null, require('NotFoundPage').default);
-          }, 'NotFoundPage');
+            path: '*',
+            getComponent: function get(location, cb) {
+              require.ensure([], (require) => {
+                cb(null, require('NotFoundPage').default);
+            }, 'NotFoundPage');
+          },
         },
-      },
     ];
 }

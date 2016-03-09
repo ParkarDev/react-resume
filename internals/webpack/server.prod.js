@@ -29,12 +29,12 @@ new WebpackDevServer(webpack(config), { // Start a server
     } else {
         console.log('Server started ' + chalk.green('✓'));
         ngrok.connect(3000, (innerErr, url) => {
-          if (innerErr) {
-            console.log(chalk.red('ERROR\n' + innerErr));
-        }
-          console.log('Tunnel initialised ' + chalk.green('✓'));
-          console.log('\nYour app is available at ' + chalk.magenta(url));
-          console.log(chalk.blue('\nPress ' + chalk.italic('CTRL-C') + ' to stop'));
-      });
+            if (innerErr) {
+              console.log(chalk.red('ERROR\n' + innerErr));
+          }
+            console.log('Tunnel initialised ' + chalk.green('✓'));
+            console.log('\nYour app is available at ' + chalk.magenta(url));
+            console.log(chalk.blue('\nPress ' + chalk.italic('CTRL-C') + ' to stop'));
+        });
     }
 });

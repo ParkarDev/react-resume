@@ -10,10 +10,10 @@ describe('errorSelector', () => {
     it('should select the error', () => {
         const error = 404;
         const mockedState = fromJS({
-          global: {
-            error,
-        },
-      });
+            global: {
+              error,
+          },
+        });
         expect(errorSelector(mockedState)).toEqual(error);
     });
 });

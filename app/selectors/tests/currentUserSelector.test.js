@@ -10,10 +10,10 @@ describe('currentUserSelector', () => {
     it('should select the current user', () => {
         const currentUser = 'mxstbr';
         const mockedState = fromJS({
-          global: {
-            currentUser,
-        },
-      });
+            global: {
+              currentUser,
+          },
+        });
         expect(currentUserSelector(mockedState)).toEqual(currentUser);
     });
 });

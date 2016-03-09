@@ -13,39 +13,39 @@ module.exports = (config) => {
         singleRun: true,
 
         files: [
-          {
-              pattern: './test-bundler.js',
-              watched: false,
-              served: true,
-              included: true,
-          },
-      ],
+            {
+                pattern: './test-bundler.js',
+                watched: false,
+                served: true,
+                included: true,
+            },
+        ],
 
         preprocessors: {
-          ['./test-bundler.js']: ['webpack', 'sourcemap'],
-      },
+            ['./test-bundler.js']: ['webpack', 'sourcemap'],
+        },
 
         webpack: webpackConfig,
 
     // make Webpack bundle generation quiet
         webpackMiddleware: {
-          noInfo: true,
-      },
+            noInfo: true,
+        },
 
         customLaunchers: {
-          ChromeTravis: {
-            base: 'Chrome',
-            flags: ['--no-sandbox'],
+            ChromeTravis: {
+              base: 'Chrome',
+              flags: ['--no-sandbox'],
+          },
         },
-      },
 
         coverageReporter: {
-          dir: path.join(process.cwd(), '../../coverage'),
-          reporters: [
+            dir: path.join(process.cwd(), '../../coverage'),
+            reporters: [
         { type: 'lcov', subdir: 'lcov' },
         { type: 'html', subdir: 'html' },
-        ],
-      },
+          ],
+        },
 
     });
 };

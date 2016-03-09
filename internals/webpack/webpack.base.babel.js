@@ -13,16 +13,16 @@ module.exports = (options) => ({
     }, options.output), // Merge with env dependent settings
     module: {
         loaders: [{
-          test: /\.js$/, // Transform all .js files required somewhere with Babel
-          loader: 'babel',
-          exclude: /node_modules/,
-          query: options.babelQuery,
-      }, {
+            test: /\.js$/, // Transform all .js files required somewhere with Babel
+            loader: 'babel',
+            exclude: /node_modules/,
+            query: options.babelQuery,
+        }, {
       // Transform our own .css files with PostCSS and CSS-modules
-        test: /\.css$/,
-        exclude: /node_modules/,
-        loader: options.cssLoaders,
-    }, {
+          test: /\.css$/,
+          exclude: /node_modules/,
+          loader: options.cssLoaders,
+      }, {
       // Do not transform vendor's CSS with CSS-modules
       // The point is that they remain in global scope.
       // Since we require these CSS files in our JS or CSS files,
@@ -45,19 +45,19 @@ module.exports = (options) => ({
     postcss: () => options.postcssPlugins,
     resolve: {
         modulesDirectories: [
-          'containers',
-          'components',
-          'selectors',
-          'sagas',
-          'assets',
-          'node_modules',
-      ],
+            'containers',
+            'components',
+            'selectors',
+            'sagas',
+            'assets',
+            'node_modules',
+        ],
         extensions: [
-          '',
-          '.js',
-          '.jsx',
-          '.react.js',
-      ],
+            '',
+            '.js',
+            '.jsx',
+            '.react.js',
+        ],
     },
     devtool: options.devtool,
     target: 'web', // Make web variables accessible to webpack, e.g. window

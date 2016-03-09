@@ -10,15 +10,15 @@ module.exports = {
     // Some libraries don't like being run through babel.
     // If they gripe, put them here.
         noParse: [
-          /node_modules\/sinon/,
-          /node_modules\/acorn/,
-      ],
+            /node_modules\/sinon/,
+            /node_modules\/acorn/,
+        ],
         preLoaders: [
       { test: /\.js$/,
         loader: 'isparta',
         include: path.resolve('app/'),
       },
-      ],
+        ],
         loaders: [
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.css$/, loader: 'null-loader' },
@@ -29,7 +29,7 @@ module.exports = {
       { test: /\.jpe?g$|\.gif$|\.png$/i,
         loader: 'null-loader',
       },
-      ],
+        ],
     },
   // Some node_modules pull in Node-specific dependencies.
   // Since we're running in a browser we have to stub them out. See:
@@ -50,16 +50,16 @@ module.exports = {
     },
     resolve: {
         modulesDirectories: [
-          'containers',
-          'components',
-          'selectors',
-          'sagas',
-          'assets',
-          'node_modules',
-      ],
+            'containers',
+            'components',
+            'selectors',
+            'sagas',
+            'assets',
+            'node_modules',
+        ],
         alias: {
       // required for enzyme to work properly
-          sinon: 'sinon/pkg/sinon',
-      },
+            sinon: 'sinon/pkg/sinon',
+        },
     },
 };

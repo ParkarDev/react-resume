@@ -8,13 +8,13 @@ class List extends React.Component {
         let content = (<div></div>);
     // If we have items, render them
         if (this.props.items) {
-          content = this.props.items.map((item, index) => (
+            content = this.props.items.map((item, index) => (
         <ComponentToRender key={'item-' + index } item={item} />
       ));
-      } else {
+        } else {
       // Otherwise render a single component
-          content = (<ComponentToRender />);
-      }
+            content = (<ComponentToRender />);
+        }
 
         return (
       <div className={ styles.listWrapper }>

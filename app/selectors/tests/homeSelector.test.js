@@ -9,11 +9,11 @@ import expect from 'expect';
 describe('homeSelector', () => {
     it('should select the home state', () => {
         const homeState = fromJS({
-          userData: {},
-      });
+            userData: {},
+        });
         const mockedState = fromJS({
-          home: homeState,
-      });
+            home: homeState,
+        });
         expect(homeSelector(mockedState)).toEqual(homeState);
     });
 });

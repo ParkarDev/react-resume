@@ -10,10 +10,10 @@ describe('loadingSelector', () => {
     it('should select the loading', () => {
         const loading = false;
         const mockedState = fromJS({
-          global: {
-            loading,
-        },
-      });
+            global: {
+              loading,
+          },
+        });
         expect(loadingSelector(mockedState)).toEqual(loading);
     });
 });

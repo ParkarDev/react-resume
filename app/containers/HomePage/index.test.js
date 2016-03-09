@@ -35,14 +35,14 @@ describe('<HomePage />', () => {
 
     it('should render the repositories if loading was successful', () => {
         const repos = [{
-          owner: {
-            login: 'mxstbr',
-        },
-          html_url: 'https://github.com/mxstbr/react-boilerplate',
-          name: 'react-boilerplate',
-          open_issues_count: 20,
-          full_name: 'mxstbr/react-boilerplate',
-      }];
+            owner: {
+              login: 'mxstbr',
+          },
+            html_url: 'https://github.com/mxstbr/react-boilerplate',
+            name: 'react-boilerplate',
+            open_issues_count: 20,
+            full_name: 'mxstbr/react-boilerplate',
+        }];
         const renderedComponent = shallow(
       <HomePage
         repos={repos}
@@ -57,10 +57,10 @@ describe('<HomePage />', () => {
         const openRouteSpy = expect.createSpy();
     // Spy on the openRoute method of the HomePage
         const openRoute = (dest) => {
-          if (dest === '/features') {
-            openRouteSpy();
-        }
-      };
+            if (dest === '/features') {
+              openRouteSpy();
+          }
+        };
         const renderedComponent = mount(
       <HomePage loading changeRoute={openRoute} />
     );

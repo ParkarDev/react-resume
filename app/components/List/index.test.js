@@ -15,9 +15,9 @@ describe('<List />', () => {
 
     it('should render the items', () => {
         const items = [
-          'Hello',
-          'World',
-      ];
+            'Hello',
+            'World',
+        ];
         const renderedComponent = render(
       <List items={items} component={ListItem} />
     );

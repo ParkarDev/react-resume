@@ -29,10 +29,10 @@ describe('<NotFound />', () => {
     it('should link to "/"', () => {
         const changeRouteSpy = expect.createSpy();
         const onChangeRoute = (dest) => {
-          if (dest === '/') {
-            changeRouteSpy();
-        }
-      };
+            if (dest === '/') {
+              changeRouteSpy();
+          }
+        };
         const renderedComponent = mount(
       <NotFound changeRoute={onChangeRoute} />
     );

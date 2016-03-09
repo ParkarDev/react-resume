@@ -16,14 +16,14 @@ describe('<RepoListItem />', () => {
   // Before each test reset the item data for safety
     beforeEach(() => {
         item = {
-          owner: {
-            login: 'mxstbr',
-        },
-          html_url: 'https://github.com/mxstbr/react-boilerplate',
-          name: 'react-boilerplate',
-          open_issues_count: 20,
-          full_name: 'mxstbr/react-boilerplate',
-      };
+            owner: {
+              login: 'mxstbr',
+          },
+            html_url: 'https://github.com/mxstbr/react-boilerplate',
+            name: 'react-boilerplate',
+            open_issues_count: 20,
+            full_name: 'mxstbr/react-boilerplate',
+        };
     });
 
     it('should render a ListItem', () => {

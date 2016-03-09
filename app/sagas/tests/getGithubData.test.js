@@ -31,19 +31,19 @@ describe('getGithubData Saga', () => {
 
     it('should dispatch the reposLoaded action if it requests the data successfully', () => {
         const response = {
-          data: [{
-            name: 'First repo',
-        }, {
-          name: 'Second repo',
-      }],
-      };
+            data: [{
+              name: 'First repo',
+          }, {
+            name: 'Second repo',
+        }],
+        };
         expect(generator.next(response).value).toEqual(put(reposLoaded(response.data, username)));
     });
 
     it('should call the repoLoadingError action if the response errors', () => {
         const response = {
-          err: 'Some error',
-      };
+            err: 'Some error',
+        };
         expect(generator.next(response).value).toEqual(put(repoLoadingError(response.err)));
     });
 });
